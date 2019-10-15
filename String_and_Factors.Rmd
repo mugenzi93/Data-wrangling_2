@@ -1,0 +1,145 @@
+---
+title: "String_and_Factors"
+author: "Clement Mugenzi"
+date: "10/15/2019"
+output: github_document
+---
+
+```{r setup, include=FALSE}
+library(tidyverse)
+library(rvest)
+library(httr)
+knitr::opts_chunk$set(
+	echo = TRUE,
+	warning = FALSE,
+	fig.width = 8, 
+  fig.height = 6,
+  out.width = "90%"
+)
+options(
+  ggplot2.continuous.colour = "viridis",
+  ggplot2.continuous.fill = "viridis"
+)
+scale_colour_discrete = scale_colour_viridis_d
+scale_fill_discrete = scale_fill_viridis_d
+theme_set(theme_minimal() + theme(legend.position = "bottom"))
+```
+
+
+## String manipulation
+
+```{r}
+string_vec1 = c("my", "name", "is", "jeff")
+
+str_detect(string_vec1, "jeff") # shows the pattern so we be able to replace
+```
+
+
+```{r}
+str_replace(string_vec1, "m", "M") # replacing letters 
+```
+
+
+```{r}
+string_vec2 = c(
+  "i think we all rule for participating",
+  "i think i have been caught",
+  "i think this will be quite fun actually",
+  "it will be fun, i think")
+
+str_detect(string_vec2, "^i think") # be specific with ^ to express the start.
+
+str_detect(string_vec2, "i think$") # be specific with ^ to express the end.
+```
+
+
+```{r}
+string_vec3 = c(
+  "Y'all remember Pres. HW Bush?",
+  "I saw a green bush",
+  "BBQ and Bushwalking at Molonglo Gorge",
+  "BUSH -- LIVE IN CONCERT!!")
+
+str_detect(string_vec3, "[Bb]ush") # only capital B and lowercase b
+```
+
+
+```{r}
+string_vec4 = c(
+  '7th inning stretch',
+  '1st half soon to begin. Texas won the toss.',
+  'she is 5 feet 4 inches tall',
+  '3AM - cant sleep :('
+  ) # numbers follow by letter
+
+str_detect(string_vec4, "[0-9][a-zA-Z]")
+```
+
+
+```{r}
+string_vec5 = c(
+  'Its 7:11 in the evening',
+  'want to go to 7-11?',
+  'my flight is AA711',
+  'NetBios: scanning ip 203.167.114.66'
+  ) # 7 followed any character and 11.
+
+str_detect(string_vec5, "7.11")
+```
+
+
+
+```{r}
+string_vec6 = c(
+  'The CI is [2, 5]',
+  ':-]',
+  ':-[',
+  'I found the answer on pages [6-7]'
+  )
+
+str_detect(string_vec6, pattern = "\\[")
+```
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
